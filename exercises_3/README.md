@@ -1,0 +1,1 @@
+Cree un programa que reciba un número n y retorne un string de n "a" y n "b", por ejemplo si n es 5, entonces imprime aaaaabbbbb, recuerde no puede usar ciclos pero puede usar subrutinas auxiliares.
