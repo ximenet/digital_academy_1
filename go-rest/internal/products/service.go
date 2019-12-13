@@ -1,11 +1,11 @@
 package products
 
 type Service interface {
-	Create(products Products) error
-	FindById(id int32) (*Products, error)
-	FindAll() *[]Products
+	Create(product Product) error
+	FindById(id int32) (*Product, error)
+	FindAll() *[]Product
 	Delete(id int32) error
-	Update(id int32, products Products) (*Products, error)
+	Update(id int32, product Product) (*Product, error)
 }
 
 type service struct {
@@ -18,22 +18,22 @@ func NewService(repo Repository) Service {
 	}
 }
 
-func (s *service) Create(products Products) error {
+func (s *service) Create(product Product) error {
 	return nil
 }
 
-func (s *service) FindById(id int32) (*Products, error) {
+func (s *service) FindById(id int32) (*Product, error) {
 	return nil, nil
 }
 
-func (s *service) FindAll() *[]Products {
+func (s *service) FindAll() *[]Product {
 	return nil
 }
 
 func (s *service) Delete(id int32) error {
-	return nil
+	return s.repo.Delete(id)
 }
 
-func (s *service) Update(id int32, products Products) (*Products, error) {
+func (s *service) Update(id int32, products Product) (*Product, error) {
 	return nil, nil
 }

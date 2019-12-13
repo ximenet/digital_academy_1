@@ -1,7 +1,7 @@
 package products
 
-//Products estructura representativa de un producto
-type Products struct {
+//Product estructura representativa de un producto
+type Product struct {
 	Name        string
 	Description string
 	Price       float32

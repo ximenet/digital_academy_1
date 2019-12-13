@@ -20,7 +20,7 @@ func main() {
 	e.Use(middleware.Logger())
 
 	// Se crea mapa para 'persistencia' de datos
-	productMap := make(map[int32]*products.Products)
+	productMap := make(map[int32]*products.Product)
 	// Se crea repositorio con su mapa de dependencia
 	repo := products.NewRepository(productMap)
 	// Se crea service que tiene como dependencia su repo

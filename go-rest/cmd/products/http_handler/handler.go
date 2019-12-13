@@ -2,6 +2,8 @@ package http_handler
 
 import (
 	"github.com/labstack/echo"
+	"net/http"
+	"strconv"
 
 	"go-tdd/internal/products"
 )
@@ -33,7 +35,19 @@ func (h *Handler) FindAll(c echo.Context) error {
 	return nil
 }
 func (h *Handler) FindById(c echo.Context) error {
-	return nil
+	id, err := strconv.Atoi(c.Param("id"))
+
+	if err != nil {
+		return c.JSON(http.StatusBadRequest, err)
+	}
+
+	product, err := h.service.FindById(int32(id))
+
+	if err != nil {
+		return c.JSON(http.StatusInternalServerError, err)
+	}
+
+	return c.JSON(http.StatusOK, product)
 }
 func (h *Handler) Delete(c echo.Context) error {
 	return nil
