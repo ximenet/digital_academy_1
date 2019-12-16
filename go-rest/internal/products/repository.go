@@ -31,6 +31,10 @@ func (r *repository) Create(product Product) error {
 		return errors.New("Producto debe tener descripcion")
 	}
 
+	if product.Price <= 0 {
+		return errors.New("Producto debe tener un precio mayor a cero")
+	}
+
 	id := int32(len(r.productsMap) + 1)
 	r.productsMap[id] = &product
 

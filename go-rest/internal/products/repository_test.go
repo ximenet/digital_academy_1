@@ -58,6 +58,24 @@ func TestRepository(t *testing.T) {
 		assert.NotNil(t, error)
 	})
 
+	t.Run("Debe retornar un error al crear producto con precio menor o igual a cero", func(t *testing.T) {
+		//Creamos una instancia de repo
+		productsMap := make(map[int32]*products.Product)
+		repo := products.NewRepository(productsMap)
+
+		//Creamos un nuevo producto
+		product := products.Product{
+			Name:        "Perfume",
+			Description: "Carolina Herrera",
+			Price:       -1,
+		}
+
+		error := repo.Create(product)
+
+		//Verificamos que error no sea nulo
+		assert.NotNil(t, error)
+	})
+
 	//TODO: Implementar tests para otros casos
 	// Refactorizar para utilizar tabla
 }
